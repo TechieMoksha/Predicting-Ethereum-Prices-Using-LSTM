@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ethereum Price Prediction</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Ethereum Price Prediction</h1>
+
+        <p class="subtitle">
+            Predict future Ethereum prices using LSTM Deep Learning Model
+        </p>
+
+        <div class="note">
+            <h3>Note:</h3>
+            <p>
+                Last recorded dataset date is <b>16/04/2020</b>.
+                The further the prediction date is from the dataset,
+                the lower the prediction accuracy may become.
+            </p>
+        </div>
+
+        <form method="POST">
+
+            <label for="td">Enter Future Date:</label>
+
+            <input
+                type="text"
+                name="td"
+                id="td"
+                placeholder="yyyy/mm/dd"
+                required
+            >
+
+            <br><br>
+
+            <input type="submit" value="Predict">
+
+        </form>
+
+        {% if name %}
+
+        <div class="result">
+
+            <h2>{{ name }}</h2>
+
+            <img
+                src="{{ url_for('static', filename='output.png') }}"
+                alt="Prediction Chart"
+                width="1000"
+            >
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>
